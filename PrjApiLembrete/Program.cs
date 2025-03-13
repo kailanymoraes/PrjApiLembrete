@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using PrjApiLembrete.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppLembretesContext>(opitions => 
+opitions.UseMySQL(builder.Configuration.GetConnectionString("ConexaoPadrao")));
 
 // Add services to the container.
 
